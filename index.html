@@ -78,17 +78,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--nav-bg);bac
 .skill-bar-top strong{font-size:.8rem;color:var(--lav-d);font-weight:600}
 .skill-bar-track{height:6px;background:var(--lav-l);border-radius:99px;overflow:hidden}
 .skill-bar-fill{height:100%;background:linear-gradient(90deg,var(--lav),var(--lav-d));border-radius:99px;width:0;transition:width 1s ease}
-.skill-pills-wrap{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.8rem}
-.spill{background:var(--beige-d);color:var(--muted);border-radius:20px;padding:.28rem .85rem;font-size:.78rem;font-weight:400;border:1px solid var(--bdr);transition:all .2s;cursor:default}
-.spill:hover{background:var(--lav-l);color:var(--lav-dk);transform:translateY(-2px)}
 .skill-pills-wrap{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
-.spill{padding:10px 18px;background:#efe7fb;border:1px solid #dccdf7;border-radius:999px;font-size:14px;font-weight:600;color:#7b64b1;}
+.spill{padding:10px 18px;background:#efe7fb;border:1px solid #dccdf7;border-radius:999px;font-size:14px;font-weight:600;color:#7b64b1;cursor:default;transition:all .2s;}
+.spill:hover{background:var(--lav-l);color:var(--lav-dk);transform:translateY(-2px)}
+
 /* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
 .proj-card{background:var(--card);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;transition:all .3s;cursor:pointer}
-.proj-card:hover{transform:translateY(-8px);box-shadow:var(--sh-h)}
-.proj-thumb{height:155px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;transition:transform .3s}
-.proj-card:hover .proj-thumb{transform:scale(1.08)}
+.proj-card:hover{transform: translateY(-10px) scale(1.02);box-shadow: 0 20px 50px rgba(120,100,160,0.25);}
+.proj-thumb{height:155px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;transition:transform .3s;overflow:hidden;position:relative;}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;object-position: center;transition: transform .4s ease;}
+.proj-card:hover .proj-thumb img{transform: scale(1.05);}
 .proj-thumb.t1{background:linear-gradient(135deg,#e8e0f5,#d0c4f0)}
 .proj-thumb.t2{background:linear-gradient(135deg,#f5f0e8,#e8ddd0)}
 .proj-thumb.t3{background:linear-gradient(135deg,#e0f0e8,#c4e0d0)}
@@ -98,61 +98,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--nav-bg);bac
 .proj-info p{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:.9rem}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .tag{background:var(--lav-l);color:var(--lav-d);border-radius:20px;padding:.18rem .65rem;font-size:.72rem;font-weight:500}
-.proj-link{float:right;color:var(--lav-d);font-size:.8rem;font-weight:500;text-decoration:none;margin-top:.6rem;display:inline-block}
-.proj-link:hover{text-decoration:underline}
-.proj-card:hover{transform: translateY(-10px) scale(1.02);box-shadow: 0 20px 50px rgba(120,100,160,0.25);}
-.proj-link{transition: all .3s;}
-.proj-link:hover{letter-spacing: 1px;}
-.proj-img{width:100%;height:100%;object-fit:cover;object-position: center;}
-.proj-thumb img{transition: transform .4s ease;}
-.proj-card:hover .proj-thumb img{transform: scale(1.05);}
+.proj-link{float:right;color:var(--lav-d);font-size:.8rem;font-weight:500;text-decoration:none;margin-top:.6rem;display:inline-block;transition: all .3s;}
+.proj-link:hover{text-decoration:underline;letter-spacing: 1px;}
+
 /* CERTS */
 .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
 .cert-card{background:var(--card);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;position:relative;transition:all .3s;cursor:pointer}
 .cert-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:var(--sh-h)}
-.cert-img{height:165px;background:linear-gradient(135deg,var(--lav-l),var(--lav));display:flex;align-items:center;justify-content:center;font-size:3.8rem;position:relative;overflow:hidden;transition:all .3s}
+.cert-card a{text-decoration:none;color:inherit;display:block}
+.cert-img{height:220px;background:linear-gradient(135deg,var(--lav-l),var(--lav));display:flex;align-items:center;justify-content:center;font-size:3.8rem;position:relative;overflow:hidden;transition:all .3s}
+.cert-img img{width:100%;height:100%;object-fit:cover;display:block}
 .cert-card:hover .cert-img{filter:brightness(.82)}
-.cert-ov{position:absolute;inset:0;background:rgba(90,74,138,.86);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;flex-direction:column;gap:.4rem}
+.cert-ov{position:absolute;inset:0;background:rgba(90,74,138,.86);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;flex-direction:column;gap:.4rem;text-align:center}
 .cert-card:hover .cert-ov{opacity:1}
 .cert-ov .eye{font-size:1.9rem}
 .cert-ov span{color:#fff;font-size:.85rem;font-weight:500}
 .cert-body{padding:1rem 1.2rem}
 .cert-body h3{font-size:.92rem;font-weight:600;margin-bottom:.25rem}
 .cert-body p{font-size:.78rem;color:var(--muted)}
-.cert-yr{position:absolute;top:10px;right:10px;background:var(--lav-d);color:#fff;border-radius:20px;padding:.18rem .65rem;font-size:.7rem;font-weight:600}
+.cert-yr{position:absolute;top:10px;right:10px;background:var(--lav-d);color:#fff;border-radius:20px;padding:.18rem .65rem;font-size:.7rem;font-weight:600;z-index:10;}
 [data-lang="ar"] .cert-yr{right:auto;left:10px}
-.cert-card{overflow:hidden;position:relative}
-.cert-card a{text-decoration:none;color:inherit;display:block}
-.cert-img{width:100%;height:220px;overflow:hidden}
-.cert-img img{width:100%;height:100%;object-fit:cover;display:block}
-.cert-ov{position:absolute;inset:0}
-.cert-ov{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
-.contact-info h2{font-size:1.05rem;font-weight:600;margin-bottom:1.25rem}
-.c-item{display:flex;align-items:center;gap:.9rem;padding:.9rem 1rem;background:var(--card);border:1px solid var(--bdr);border-radius:16px;margin-bottom:.85rem;transition:all .25s;cursor:pointer}
-.c-item:hover{transform:translateX(5px);box-shadow:var(--sh)}
-[data-lang="ar"] .c-item:hover{transform:translateX(-5px)}
-.c-icon{width:42px;height:42px;background:var(--lav-l);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-container{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--bdr);border-radius:24px;padding:2rem;box-shadow:var(--sh);transition:background .3s, border-color .3s}
+.contact-info h2{font-size:1.2rem;font-weight:600;margin-bottom:1.5rem;text-align:center;color:var(--lav-d)}
+.c-item{display:flex;align-items:center;gap:.9rem;padding:.9rem 1rem;background:var(--bg);border:1px solid var(--bdr);border-radius:16px;margin-bottom:.85rem;transition:all .25s;cursor:pointer;text-decoration:none;color:inherit;position:relative;}
+.c-item:hover{transform:translateY(-4px);background:var(--lav-l)}
+.c-icon{width:42px;height:42px;background:var(--card);border:1px solid var(--bdr);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .c-lbl{font-size:.75rem;color:var(--muted)}
 .c-val{font-size:.92rem;font-weight:500}
-.cf-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:22px;padding:1.75rem}
-.cf-wrap h2{font-size:1.05rem;font-weight:600;margin-bottom:1.3rem}
-.fg{margin-bottom:1rem}
-.fg label{display:block;font-size:.8rem;font-weight:500;color:var(--muted);margin-bottom:.35rem}
-.fg input,.fg textarea{width:100%;padding:.7rem .95rem;background:var(--bg);border:1px solid var(--bdr);border-radius:11px;font-size:.88rem;color:var(--txt);font-family:inherit;transition:border-color .2s,box-shadow .2s;outline:none}
-.fg input:focus,.fg textarea:focus{border-color:var(--lav);box-shadow:0 0 0 3px rgba(184,169,217,.2)}
-.fg textarea{resize:vertical;min-height:105px}
-.send-btn{width:100%;padding:.8rem;background:var(--lav-d);color:#fff;border:none;border-radius:13px;font-size:.97rem;font-weight:600;cursor:pointer;transition:all .25s;font-family:inherit}
-.send-btn:hover{background:var(--lav-dk);transform:translateY(-2px);box-shadow:var(--sh-h)}
-.succ{text-align:center;padding:2rem;color:var(--lav-d);font-weight:500;display:none}
-.succ .ck{font-size:2.8rem;margin-bottom:.5rem}
-.contact-card{text-decoration:none;color:inherit;display:block;transition:.3s}.contact-card:hover{transform:translateY(-4px)}
-.c-item{cursor:pointer;text-decoration:none;color:inherit;transition:.3s}.c-item:hover{transform:translateY(-4px);background:#f3e9ff}
-.c-item{position:relative;text-decoration:none;color:inherit;cursor:pointer;transition:.3s}.c-item:hover{transform:translateY(-4px);background:#f3e9ff}.c-go{margin-left:auto;font-size:20px;opacity:.5;transition:.3s}.c-item:hover .c-go{opacity:1;transform:translateX(4px)}
+.c-go{margin-left:auto;font-size:20px;opacity:.5;transition:.3s}
+.c-item:hover .c-go{opacity:1;transform:translateX(4px)}
+[data-lang="ar"] .c-item:hover .c-go{transform:translateX(-4px);margin-right:auto;margin-left:0}
+
 /* FOOTER */
-footer{text-align:center;padding:2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--bdr)}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--bdr);margin-top:2rem}
 footer span{color:var(--lav-d);font-weight:500}
 
 /* ANIMATIONS */
@@ -174,20 +154,19 @@ footer span{color:var(--lav-d);font-weight:500}
 .mnl{background:none;border:none;cursor:pointer;font-family:inherit;font-size:1rem;color:var(--muted);padding:.75rem 1rem;border-radius:14px;transition:all .2s;font-weight:400;text-align:left;width:100%}
 [data-lang="ar"] .mnl{text-align:right}
 .mnl:hover,.mnl.active{background:var(--lav-l);color:var(--lav-dk);font-weight:600}
-.m-controls{display:none}
 
 /* MOBILE */
 @media(max-width:768px){
-  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
   .about-visual{order:-1}
   .blob{width:210px;height:210px;font-size:5rem}
-  .profile-pic{width:170px;height:170px;object-fit:cover;border-radius:50%;border:5px solid rgba(255,255,255,0.7);box-shadow:0 10px 25px rgba(0,0,0,0.12)}
   .nav-links{display:none}
   .nav-controls{display:flex}
   .ctrl-btn{font-size:.72rem;padding:.28rem .6rem}
   .hamburger{display:flex}
   .page{padding:75px 1rem 3rem}
   .about-stats{flex-wrap:wrap;gap:1rem}
+  .contact-container{padding:1.25rem}
 }
 </style>
 </head>
@@ -223,7 +202,7 @@ footer span{color:var(--lav-d);font-weight:500}
 <div class="page" id="page-about">
   <div class="about-grid">
     <div class="about-visual" style="animation:fadeIn .9s ease both .2s">
-  <div class="blob"><img src="photo.JPG" style="width:75%;height:75%;object-fit:cover;border-radius:50%;" alt="My Photo">
+      <div class="blob"><img src="photo.JPG" style="width:75%;height:75%;object-fit:cover;border-radius:50%;" alt="My Photo">
         <div class="bbadge b1">🖥️ <span id="bb1">CS Student</span></div>
         <div class="bbadge b2">🌐 <span id="bb2">Interested in Web Development</span></div>
         <div class="bbadge b3">✨ <span id="bb3">Open to Work</span></div>
@@ -233,15 +212,14 @@ footer span{color:var(--lav-d);font-weight:500}
       <h1 class="about-title" id="at-title">Hello, I'm <span id="at-name">Alya Shehab ✦</span></h1>
       <p class="about-role" id="at-role"><mark style="background:var(--lav-l);color:var(--lav-d);padding:.15rem .7rem;border-radius:8px;font-style:normal;"> 👩🏻‍💻 Computer Science Student</mark></p>
       <p class="about-desc" id="at-desc">Passionate about building creative solutions through code. Currently studying Computer Science and exploring the worlds of software development, algorithms, and data structures.</p>
-     <div class="about-btns">
-  <a href="https://github.com/Alya-Shehab" target="_blank">
-    <button class="btn-p" id="at-btn1">GitHub</button>
-  </a>
-
-  <a href="pdf/my cv.pdf" target="_blank">
-    <button class="btn-o" id="at-btn2">View CV</button>
-  </a>
-</div>
+      <div class="about-btns">
+        <a href="https://github.com/Alya-Shehab" target="_blank">
+          <button class="btn-p" id="at-btn1">GitHub</button>
+        </a>
+        <a href="pdf/my cv.pdf" target="_blank">
+          <button class="btn-o" id="at-btn2">View CV</button>
+        </a>
+      </div>
       <div class="about-stats">
         <div class="stat-box"><div class="num" id="st-n1">6+</div><div class="lbl" id="st-l1">Projects</div></div>
         <div class="stat-box"><div class="num" id="st-n2">4+</div><div class="lbl" id="st-l2">Certificates</div></div>
@@ -260,7 +238,7 @@ footer span{color:var(--lav-d);font-weight:500}
   </div>
   <div class="proj-grid reveal">
     <div class="proj-card">
-      <div class="proj-thumb t1"><img src="coffee.png" class="proj-img"> </div>
+      <div class="proj-thumb t1"><img src="coffee.png" class="proj-img" alt="Brew & Bean"> </div>
       <div class="proj-info">
         <h3 id="pc1-t">Brew & Bean</h3>
         <p id="pc1-d">A web-based coffee shop management system developed as a university project.</p>
@@ -269,7 +247,7 @@ footer span{color:var(--lav-d);font-weight:500}
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-thumb t2"><img src="hotel.png" class="proj-img"></div>
+      <div class="proj-thumb t2"><img src="hotel.png" class="proj-img" alt="Hotel management"></div>
       <div class="proj-info">
         <h3 id="pc2-t">Hotel management System</h3>
         <p id="pc2-d">A hotel management system designed to handle reservations, rooms, and customer management efficiently.</p>
@@ -278,7 +256,7 @@ footer span{color:var(--lav-d);font-weight:500}
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-thumb t3"><img src="coop.png" class="proj-img"></div>
+      <div class="proj-thumb t3"><img src="coop.png" class="proj-img" alt="Co-op Training"></div>
       <div class="proj-info">
         <h3 id="pc3-t">Co-op Training Management System</h3>
         <p id="pc3-d">A web-based system developed to streamline communication and task management between students and supervisors during co-op training.</p>
@@ -287,17 +265,16 @@ footer span{color:var(--lav-d);font-weight:500}
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-thumb t4"><img src="network.png" class="proj-img"></div>
+      <div class="proj-thumb t4"><img src="network.png" class="proj-img" alt="Network Design"></div>
       <div class="proj-info">
         <h3 id="pc4-t">College Network Design</h3>
         <p id="pc4-d">A network infrastructure design project created to improve connectivity, security, and communication within a college environment.</p>
-        <div class="proj-tags"><span class="tag">Cisco</span><span class="tag">Packet Tracer</span></div> <span class="tag">Networking</span>
+        <div class="proj-tags"><span class="tag">Cisco</span><span class="tag">Packet Tracer</span><span class="tag">Networking</span></div>
         <a href="https://github.com/Alya-shehab/Design_Network_-for_a_College" target="_blank" class="proj-link" id="pc4-l">View on GitHub→</a>
-  </div>
+      </div>
     </div>
-
     <div class="proj-card">
-      <div class="proj-thumb t5"><img src="ml.png" class="proj-img"></div>
+      <div class="proj-thumb t5"><img src="ml.png" class="proj-img" alt="Student Performance"></div>
       <div class="proj-info">
         <h3 id="pc5-t">Student Performance Prediction</h3>
         <p id="pc5-d">A machine learning project for predicting student academic performance using classification models and educational datasets.</p>
@@ -305,9 +282,8 @@ footer span{color:var(--lav-d);font-weight:500}
         <a href="https://github.com/Alya-shehab/student-performance-ml-project" target="_blank" class="proj-link" id="pc5-l">View on GitHub→</a>
       </div>
     </div>
-
-     <div class="proj-card">
-      <div class="proj-thumb t6"><img src="home.png" class="proj-img"></div>
+    <div class="proj-card">
+      <div class="proj-thumb t6"><img src="home.png" class="proj-img" alt="Smart Home Automata"></div>
       <div class="proj-info">
         <h3 id="pc6-t">Smart Home Automata System</h3>
         <p id="pc6-d">A smart home security system built using Automata Theory and ANTLR with authentication and automation features.</p>
@@ -315,9 +291,8 @@ footer span{color:var(--lav-d);font-weight:500}
         <a href="https://github.com/Alya-shehab/smart-home-automata-system" target="_blank" class="proj-link" id="pc6-l">View on GitHub→</a>
       </div>
     </div>
-
     <div class="proj-card">
-      <div class="proj-thumb t7"><img src="wahaj.png" class="proj-img"></div>
+      <div class="proj-thumb t7"><img src="wahaj.png" class="proj-img" alt="Wahaj Academic"></div>
       <div class="proj-info">
         <h3 id="pc7-t">Wahaj Academic Management System</h3>
         <p id="pc7-d">A Java OOP academic management system for handling projects, tasks, students, courses, and grading operations.</p>
@@ -325,9 +300,8 @@ footer span{color:var(--lav-d);font-weight:500}
         <a href="https://github.com/Alya-shehab/Wahaj-Academic-Management-System" target="_blank" class="proj-link" id="pc7-l">View on GitHub→</a>
       </div>
     </div>
-
     <div class="proj-card">
-      <div class="proj-thumb t8"><img src="attend.png" class="proj-img"></div>
+      <div class="proj-thumb t8"><img src="attend.png" class="proj-img" alt="Attendance Management"></div>
       <div class="proj-info">
         <h3 id="pc8-t">Attendance Management System</h3>
         <p id="pc8-d">A Java-based attendance management system for tracking employee check-ins, roles, and attendance records.</p>
@@ -335,9 +309,8 @@ footer span{color:var(--lav-d);font-weight:500}
         <a href="https://github.com/Alya-shehab/Attendance-Management-System" target="_blank" class="proj-link" id="pc8-l">View on GitHub→</a>
       </div>
     </div>
-
     <div class="proj-card">
-      <div class="proj-thumb t9"><img src="Sensor.png" class="proj-img"></div>
+      <div class="proj-thumb t9"><img src="Sensor.png" class="proj-img" alt="Temperature Sensor"></div>
       <div class="proj-info">
         <h3 id="pc9-t">Temperature Sensor Alarm System</h3>
         <p id="pc9-d">An Arduino-based temperature monitoring system using LM35 sensors with LED and buzzer alert functionality.</p>
@@ -345,7 +318,6 @@ footer span{color:var(--lav-d);font-weight:500}
         <a href="https://github.com/Alya-shehab/Temperature_Sensor_with_Alarm_System" target="_blank" class="proj-link" id="pc9-l">View on GitHub→</a>
       </div>
     </div>
-    
   </div>
 </div>
 
@@ -357,244 +329,130 @@ footer span{color:var(--lav-d);font-weight:500}
     <p class="section-sub" id="cl-sub">Hover to preview each certificate — snapshots of my continuous learning.</p>
   </div>
   <div class="certs-grid reveal">
-    <div class="cert-card"><a href="pdf/cart.pdf" target="_blank"><div class="cert-img"><img src="cart.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co1">View Certificate</span></div></a><div class="cert-yr" id="cy1">2026</div><div class="cert-body"><h3 id="ct1">CyberKickStart Bootcamp</h3><p id="cd1">CSC Club · Capsule Tahawul</p></div></div>
-
-<div class="cert-card"><a href="pdf/web.pdf" target="_blank"><div class="cert-img"><img src="web.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co2">View Certificate</span></div></a><div class="cert-yr" id="cy2">2025</div><div class="cert-body"><h3 id="ct2">Introduction to Front-End Development</h3><p id="cd2">Meta · Coursera</p></div></div>
-
-<div class="cert-card"><a href="pdf/python.pdf" target="_blank"><div class="cert-img"><img src="python.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co3">View Certificate</span></div></a><div class="cert-yr" id="cy3">2025</div><div class="cert-body"><h3 id="ct3">Python Basics</h3><p id="cd3">University of Michigan · Coursera</p></div></div>
-
-<div class="cert-card"><a href="pdf/satr.pdf" target="_blank"><div class="cert-img"><img src="satr.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co4">View Certificate</span></div></a><div class="cert-yr" id="cy4">2025</div><div class="cert-body"><h3 id="ct4">Introduction to Data Analysis</h3><p id="cd4">Satr Platform · Tuwaiq Academy</p></div></div>
-
-<div class="cert-card"><a href="pdf/aramco.pdf" target="_blank"><div class="cert-img"><img src="aramco.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co5">View Certificate</span></div></a><div class="cert-yr" id="cy5">2024</div><div class="cert-body"><h3 id="ct5">Low Code / No Code Seminar</h3><p id="cd5">ARAMCO · IAU</p></div></div>
-
-<div class="cert-card"><a href="pdf/human.pdf" target="_blank"><div class="cert-img"><img src="human.png"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co6">View Certificate</span></div></a><div class="cert-yr" id="cy6">2024</div><div class="cert-body"><h3 id="ct6">Professional Identity & Self Marketing</h3><p id="cd6">IAU Workshop</p></div></div>
-
+    <div class="cert-card"><a href="pdf/cart.pdf" target="_blank"><div class="cert-img"><img src="cart.png" alt="Certificate 1"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co1">View Certificate</span></div></a><div class="cert-yr" id="cy1">2026</div><div class="cert-body"><h3 id="ct1">CyberKickStart Bootcamp</h3><p id="cd1">CSC Club · Capsule Tahawul</p></div></div>
+    <div class="cert-card"><a href="pdf/web.pdf" target="_blank"><div class="cert-img"><img src="web.png" alt="Certificate 2"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co2">View Certificate</span></div></a><div class="cert-yr" id="cy2">2025</div><div class="cert-body"><h3 id="ct2">Introduction to Front-End Development</h3><p id="cd2">Meta · Coursera</p></div></div>
+    <div class="cert-card"><a href="pdf/python.pdf" target="_blank"><div class="cert-img"><img src="python.png" alt="Certificate 3"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co3">View Certificate</span></div></a><div class="cert-yr" id="cy3">2025</div><div class="cert-body"><h3 id="ct3">Python Basics</h3><p id="cd3">University of Michigan · Coursera</p></div></div>
+    <div class="cert-card"><a href="pdf/satr.pdf" target="_blank"><div class="cert-img"><img src="satr.png" alt="Certificate 4"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co4">View Certificate</span></div></a><div class="cert-yr" id="cy4">2025</div><div class="cert-body"><h3 id="ct4">Introduction to Data Analysis</h3><p id="cd4">Satr Platform · Tuwaiq Academy</p></div></div>
+    <div class="cert-card"><a href="pdf/aramco.pdf" target="_blank"><div class="cert-img"><img src="aramco.png" alt="Certificate 5"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co5">View Certificate</span></div></a><div class="cert-yr" id="cy5">2024</div><div class="cert-body"><h3 id="ct5">Low Code / No Code Seminar</h3><p id="cd5">ARAMCO · IAU</p></div></div>
+    <div class="cert-card"><a href="pdf/human.pdf" target="_blank"><div class="cert-img"><img src="human.png" alt="Certificate 6"></div><div class="cert-ov"><div class="eye">👁️</div><span id="co6">View Certificate</span></div></a><div class="cert-yr" id="cy6">2024</div><div class="cert-body"><h3 id="ct6">Professional Identity & Self Marketing</h3><p id="cd6">IAU Workshop</p></div></div>
   </div>
 </div>
 
 <!-- SKILLS -->
 <div class="page hidden" id="page-skills">
-
   <div class="reveal">
     <div class="section-label" id="sl-lbl">What I Know</div>
-
-    <h2 class="section-title" id="sl-title">
-      My <span>Skills</span>
-    </h2>
-
-    <p class="section-sub skills-intro" id="sl-sub">
-      Technologies and tools I've worked with throughout my computer science studies and personal projects.
-    </p>
+    <h2 class="section-title" id="sl-title">My <span>Skills</span></h2>
+    <p class="section-sub skills-intro" id="sl-sub">Technologies and tools I've worked with throughout my computer science studies and personal projects.</p>
   </div>
-
   <div class="skills-categories reveal">
-
     <!-- Programming -->
     <div class="skill-cat">
       <div class="skill-cat-header">
         <div class="skill-cat-icon">💻</div>
         <h3 id="sk-f1">Programming Languages</h3>
       </div>
-
       <div class="skill-bars">
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Python</span><strong>85%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="85"></div>
-          </div>
+          <div class="skill-bar-top"><span>Python</span><strong>85%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>OOP</span><strong>80%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="80"></div>
-          </div>
+          <div class="skill-bar-top"><span>OOP</span><strong>80%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>C++</span><strong>70%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="70"></div>
-          </div>
+          <div class="skill-bar-top"><span>C++</span><strong>70%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Arduino</span><strong>60%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="60"></div>
-          </div>
+          <div class="skill-bar-top"><span>Arduino</span><strong>60%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="60"></div></div>
         </div>
-
       </div>
     </div>
-
     <!-- Web -->
     <div class="skill-cat">
       <div class="skill-cat-header">
         <div class="skill-cat-icon">🌐</div>
         <h3 id="sk-f2">Web Development</h3>
       </div>
-
       <div class="skill-bars">
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>HTML</span><strong>90%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="90"></div>
-          </div>
+          <div class="skill-bar-top"><span>HTML</span><strong>90%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>CSS</span><strong>85%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="85"></div>
-          </div>
+          <div class="skill-bar-top"><span>CSS</span><strong>85%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>PHP</span><strong>80%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="80"></div>
-          </div>
+          <div class="skill-bar-top"><span>PHP</span><strong>80%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>JavaScript</span><strong>65%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="65"></div>
-          </div>
+          <div class="skill-bar-top"><span>JavaScript</span><strong>65%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="65"></div></div>
         </div>
-
       </div>
     </div>
-
     <!-- Databases -->
     <div class="skill-cat">
       <div class="skill-cat-header">
         <div class="skill-cat-icon">🗄️</div>
         <h3 id="sk-f3">Databases & Tools</h3>
       </div>
-
       <div class="skill-bars">
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>MySQL</span><strong>90%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="90"></div>
-          </div>
+          <div class="skill-bar-top"><span>MySQL</span><strong>90%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>VS Code</span><strong>90%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="90"></div>
-          </div>
+          <div class="skill-bar-top"><span>VS Code</span><strong>90%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Xampp</span><strong>80%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="80"></div>
-          </div>
+          <div class="skill-bar-top"><span>Xampp</span><strong>80%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>GitHub</span><strong>70%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="70"></div>
-          </div>
+          <div class="skill-bar-top"><span>GitHub</span><strong>70%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
         </div>
-
       </div>
     </div>
-
-    <!-- CS -->
+    <!-- CS Fundamentals -->
     <div class="skill-cat">
       <div class="skill-cat-header">
         <div class="skill-cat-icon">🧠</div>
         <h3 id="sk-f4">CS Fundamentals</h3>
       </div>
-
       <div class="skill-bars">
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Data Structures</span><strong>85%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="85"></div>
-          </div>
+          <div class="skill-bar-top"><span>Data Structures</span><strong>85%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Computer Networks</span><strong>80%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="80"></div>
-          </div>
+          <div class="skill-bar-top"><span>Computer Networks</span><strong>80%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Algorithms</span><strong>75%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="75"></div>
-          </div>
+          <div class="skill-bar-top"><span>Algorithms</span><strong>75%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Linux / Terminal</span><strong>70%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="70"></div>
-          </div>
+          <div class="skill-bar-top"><span>Linux / Terminal</span><strong>70%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
         </div>
-
         <div class="skill-bar-item">
-          <div class="skill-bar-top">
-            <span>Automata Theory</span><strong>65%</strong>
-          </div>
-          <div class="skill-bar-track">
-            <div class="skill-bar-fill" data-w="65"></div>
-          </div>
+          <div class="skill-bar-top"><span>Automata Theory</span><strong>65%</strong></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="65"></div></div>
         </div>
-
       </div>
     </div>
-
   </div>
-
   <!-- Pills -->
   <div class="skill-pills-wrap reveal" id="sk-pills-wrap">
-
     <span class="spill">Responsive Design</span>
     <span class="spill">UI Design</span>
     <span class="spill">Agile</span>
@@ -608,9 +466,7 @@ footer span{color:var(--lav-d);font-weight:500}
     <span class="spill">Presentation Skills</span>
     <span class="spill">Research Writing</span>
     <span class="spill">Fast Learning</span>
-
   </div>
-
 </div>
 
 <!-- CONTACT -->
@@ -620,23 +476,33 @@ footer span{color:var(--lav-d);font-weight:500}
     <h2 class="section-title" id="ktl-title">Let's <span>Connect</span></h2>
     <p class="section-sub" id="ktl-sub">For project inquiries, collaborations, or professional opportunities, feel free to reach out!</p>
   </div>
-  <div class="contact-grid reveal">
-    <div class="contact-info">
+  
+  <div class="reveal">
+    <!-- حاوية معلومات الاتصال مؤطرة بخلفية بيضاء (أو داكنة حسب الثيم المتغير) -->
+    <div class="contact-container">
       <h2 id="ci-title">Contact Info</h2>
-      <a href="mailto:shehabalya@gmail.com" class="c-item"><div class="c-icon">📧</div><div><div class="c-lbl" id="ci-el">Email</div></div><div class="c-go">↗</div></a>
-     <a href="tel:+966568937469" class="c-item"><div class="c-icon">📞</div><div><div class="c-lbl" id="ci-gl">Phone</div></div><div class="c-go">↗</div></a>
-      <a href="https://www.linkedin.com/in/alya-shehab-41a20327a/?isSelfProfile=true" class="c-item"><div class="c-icon">💼</div><div><div class="c-lbl" id="ci-ll">LinkedIn</div></div><div class="c-go">↗</div></a>
-      <div class="c-item"><div class="c-icon">📍</div><div><div class="c-lbl" id="ci-locl">Location</div><div class="c-val" id="ci-locv">Saudi Arabia 🇸🇦</div></div></div>
-    </div>
-    <div class="cf-wrap">
-      <h2 id="cf-title">Or Send a Message</h2>
-      <div id="cf-inner">
-        <div class="fg"><label id="cf-nl">Your Name</label><input id="cf-n" type="text" placeholder="e.g. Mohammed"></div>
-        <div class="fg"><label id="cf-el2">Email Address</label><input id="cf-e" type="email" placeholder="you@example.com"></div>
-        <div class="fg"><label id="cf-ml">Message</label><textarea id="cf-m" placeholder="Tell me about your project, collaboration, or opportunity..."></textarea></div>
-        <button class="send-btn" onclick="sendMsg()" id="cf-send">Send Message ✦</button>
+      <a href="mailto:shehabalya@gmail.com" class="c-item">
+        <div class="c-icon">📧</div>
+        <div><div class="c-lbl" id="ci-el">Email</div></div>
+        <div class="c-go">↗</div>
+      </a>
+      <a href="tel:+966568937469" class="c-item">
+        <div class="c-icon">📞</div>
+        <div><div class="c-lbl" id="ci-gl">Phone</div></div>
+        <div class="c-go">↗</div>
+      </a>
+      <a href="https://www.linkedin.com/in/alya-shehab-41a20327a/?isSelfProfile=true" class="c-item">
+        <div class="c-icon">💼</div>
+        <div><div class="c-lbl" id="ci-ll">LinkedIn</div></div>
+        <div class="c-go">↗</div>
+      </a>
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-lbl" id="ci-locl">Location</div>
+          <div class="c-val" id="ci-locv">Saudi Arabia 🇸🇦</div>
+        </div>
       </div>
-      <div class="succ" id="succ"><div class="ck">✅</div><p id="succ-t">Message sent! I'll get back to you soon ✨</p></div>
     </div>
   </div>
 </div>
@@ -660,7 +526,7 @@ en:{
     sub:"A collection of projects built during my CS journey — from Java programming  to full-stack Web development.",
     cards:[
       {t:'Brew & Bean',d:' A web-based coffee shop management system developed as a university project.',l:'View on GitHub →'},
-      {t:'Hotel Mangement System',d:'A hotel management system designed to handle reservations, rooms, and customer management efficiently.',l:'View on GitHub→'},
+      {t:'Hotel Management System',d:'A hotel management system designed to handle reservations, rooms, and customer management efficiently.',l:'View on GitHub→'},
       {t:'Co-op Training Management System',d:'A web-based system developed to streamline communication and task management between students and supervisors during co-op training.',l:'View on GitHub →'},
       {t:'College Network Design',d:'A network infrastructure design project created to improve connectivity, security, and communication within a college environment.',l:'View on GitHub →'},
       {t:'Student Performance Prediction',d:'A machine learning project for predicting student academic performance using classification models and educational datasets.',l:'View on GitHub →'},
@@ -673,19 +539,16 @@ en:{
     sub:'Hover to preview each certificate — snapshots of my continuous learning.',ov:'View Certificate',
     cards:[
       {t:'CyberKickStart Bootcamp',d:'CSC Club · Capsule Tahawul',y:'2026'},
-{t:'Introduction to Front-End Development',d:'Meta · Coursera',y:'2025'},
-{t:'Python Basics',d:'University of Michigan · Coursera',y:'2025'},
-{t:'Introduction to Data Analysis',d:'Satr Platform · Tuwaiq Academy',y:'2025'},
-{t:'Low Code / No Code Seminar',d:'ARAMCO · IAU',y:'2024'},
-{t:'Professional Identity & Self Marketing',d:'IAU Workshop',y:'2024'}
+      {t:'Introduction to Front-End Development',d:'Meta · Coursera',y:'2025'},
+      {t:'Python Basics',d:'University of Michigan · Coursera',y:'2025'},
+      {t:'Introduction to Data Analysis',d:'Satr Platform · Tuwaiq Academy',y:'2025'},
+      {t:'Low Code / No Code Seminar',d:'ARAMCO · IAU',y:'2024'},
+      {t:'Professional Identity & Self Marketing',d:'IAU Workshop',y:'2024'}
     ]},
 skills:{lbl:'What I Know',title:'My ',ts:'Skills',sub:'Technologies and tools I\'ve worked with throughout my computer science studies and personal projects.',c1:'Programming Languages',c2:'Web Development',c3:'Databases & Tools',c4:'CS Fundamentals',f1:'Data Structures',f2:'Computer Networks',f3:'Algorithms',f4:'Automata Theory'},
   contact:{lbl:'Get In Touch',title:"Let's ",ts:'Connect',
     sub:"For project inquiries, collaborations, or professional opportunities, feel free to reach out!",
-    ciTitle:'Contact Info',el:'Email',ll:'LinkedIn',gl:'Phone',locl:'Location',locv:'Saudi Arabia 🇸🇦',
-    cfTitle:'Send a Message',nl:'Your Name',el2:'Email Address',ml:'Message',
-    ph1:'e.g. Mohammed',ph2:'you@example.com',ph3:'Tell me about your project, collaboration, or opportunity...',
-    send:'Send Message ✦',succ:"Message sent! I'll get back to you soon ✨"},
+    ciTitle:'Contact Info',el:'Email',ll:'LinkedIn',gl:'Phone',locl:'Location',locv:'Saudi Arabia 🇸🇦'},
   footer:'Crafted by <span>Alya Shehab</span> using HTML, CSS & JS · <span>© 2026</span>'
 },
 ar:{
@@ -707,25 +570,22 @@ ar:{
       {t:'نظام المنزل الذكي باستخدام الأوتوماتا',d:'نظام أمان للمنزل الذكي تم تطويره باستخدام نظرية الأوتوماتا وANTLR مع ميزات للتحقق والأتمتة.',l:'عرض في GitHub ←'},
       {t:'نظام وهاج للإدارة الأكاديمية',d:'نظام أكاديمي مبني باستخدام Java OOP لإدارة المشاريع والمهام والطلاب والمقررات والدرجات.',l:'عرض في GitHub ←'},
       {t:'نظام إدارة الحضور',d:'نظام مبني باستخدام Java لإدارة حضور الموظفين وتتبع تسجيل الدخول والأدوار وسجلات الحضور.',l:'عرض في GitHub ←'},
-{t:'نظام إنذار مستشعر الحرارة',d:'نظام مراقبة حرارة باستخدام Arduino وحساس LM35 مع تنبيهات عبر الإضاءة والصافرة عند تجاوز الحد المسموح.',l:'عرض في GitHub ←'},
+      {t:'نظام إنذار مستشعر الحرارة',d:'نظام مراقبة حرارة باستخدام Arduino وحساس LM35 مع تنبيهات عبر الإضاءة والصافرة عند تجاوز الحد المسموح.',l:'عرض في GitHub ←'},
     ]},
   certs:{lbl:'إنجازاتي',title:'شهاداتي ',ts:'الاحترافية',
     sub:'مرر المؤشر على أي شهادة لمعاينتها. هذه الشهادات تمثل رحلتي في التعلم المستمر.',ov:'عرض الشهادة',
     cards:[
       {t:'CyberKickStart Bootcamp',d:'نادي الأمن السيبراني · مبادرة كبسولة تحول',y:'2026'},
-{t:'Introduction to Front-End Development',d:'كورسيرا · ميتا',y:'2025'},
-{t:'Python Basics',d:'جامعة ميشيغان · كورسيرا',y:'2025'},
-{t:'Introduction to Data Analysis',d:'منصة سطر · أكاديمية طويق',y:'2025'},
-{t:'Low Code / No Code Seminar',d:'أرامكو · جامعة الإمام عبدالرحمن بن فيصل',y:'2024'},
-{t:'Professional Identity & Self Marketing',d:'ورشة عمل · جامعة الإمام عبدالرحمن بن فيصل',y:'2024'}
+      {t:'Introduction to Front-End Development',d:'كورسيرا · ميتا',y:'2025'},
+      {t:'Python Basics',d:'جامعة ميشيغان · كورسيرا',y:'2025'},
+      {t:'Introduction to Data Analysis',d:'منصة سطر · أكاديمية طويق',y:'2025'},
+      {t:'Low Code / No Code Seminar',d:'أرامكو · جامعة الإمام عبدالرحمن بن فيصل',y:'2024'},
+      {t:'Professional Identity & Self Marketing',d:'ورشة عمل · جامعة الإمام عبدالرحمن بن فيصل',y:'2024'}
     ]},
 skills:{lbl:'ما أعرفه',title:'مهاراتي ',ts:'التقنية',sub:'التقنيات والأدوات التي عملت بها خلال دراستي في علوم الحاسب ومشاريعي الشخصية.',c1:'لغات البرمجة',c2:'تطوير الويب',c3:'قواعد البيانات والأدوات',c4:'أساسيات علوم الحاسب',f1:'هياكل البيانات',f2:'شبكات الحاسب',f3:'الخوارزميات',f4:'نظرية الأوتوماتا'},
   contact:{lbl:'تواصل معي',title:'لنكن ',ts:'على تواصل',
     sub:'للاستفسارات المتعلقة بالمشاريع، فرص التعاون، او الفرص المهنية، لا تتردد في التواصل!',
-    ciTitle:'معلومات التواصل',el:'البريد الإلكتروني',ll:'لينكدإن',gl:'الهاتف',locl:'الموقع',locv:'المملكة العربية السعودية 🇸🇦',
-    cfTitle:'أرسل رسالة',nl:'اسمك',el2:'بريدك الإلكتروني',ml:'الرسالة',
-    ph1:'مثل: محمد',ph2:'you@example.com',ph3:'حدثني عن مشروعك، فرصة التعاون، او الفرصة المهنية...',
-    send:'إرسال ✦',succ:'تم إرسال رسالتك! سأرد عليك قريباً ✨'},
+    ciTitle:'معلومات التواصل',el:'البريد الإلكتروني',ll:'لينكدإن',gl:'الهاتف',locl:'الموقع',locv:'المملكة العربية السعودية 🇸🇦'},
   footer:'صُنع بـ <span>Alya Shehab</span> باستخدام HTML و CSS و JS · <span>© 2026</span>'
 }};
 
@@ -772,10 +632,7 @@ function applyLang(l){
   });
   document.getElementById('lang-btn').textContent = c.langBtn;
   document.getElementById('dark-btn').textContent = dark ? c.lightBtn : c.darkBtn;
-  const lbm=document.getElementById('lang-btn-m');
-  const dbm=document.getElementById('dark-btn-m');
-  if(lbm) lbm.textContent = c.langBtn;
-  if(dbm) dbm.textContent = dark ? c.lightBtn : c.darkBtn;
+  
   const a = c.about;
   document.getElementById('at-title').innerHTML = a.title + '<span id="at-name">'+a.name+'</span>';
   document.getElementById('at-role').innerHTML = '<mark style="background:var(--lav-l);color:var(--lav-d);padding:.15rem .7rem;border-radius:8px;font-style:normal;">'+a.role+'</mark>';
@@ -788,6 +645,7 @@ function applyLang(l){
   document.getElementById('st-n1').textContent = a.s1; document.getElementById('st-l1').textContent = a.sl1;
   document.getElementById('st-n2').textContent = a.s2; document.getElementById('st-l2').textContent = a.sl2;
   document.getElementById('st-n3').textContent = a.s3; document.getElementById('st-l3').textContent = a.sl3;
+  
   const pr = c.projects;
   document.getElementById('pl-lbl').textContent = pr.lbl;
   document.getElementById('pl-title').innerHTML = pr.title + '<span>'+pr.ts+'</span>';
@@ -797,6 +655,7 @@ function applyLang(l){
     document.getElementById('pc'+i+'-d').textContent = pr.cards[i-1].d;
     document.getElementById('pc'+i+'-l').textContent = pr.cards[i-1].l;
   }
+  
   const cr = c.certs;
   document.getElementById('cl-lbl').textContent = cr.lbl;
   document.getElementById('cl-title').innerHTML = cr.title + '<span>'+cr.ts+'</span>';
@@ -807,6 +666,7 @@ function applyLang(l){
     document.getElementById('cd'+i).textContent = cr.cards[i-1].d;
     document.getElementById('cy'+i).textContent = cr.cards[i-1].y;
   }
+  
   const sk = c.skills;
   document.getElementById('sl-lbl').textContent = sk.lbl;
   document.getElementById('sl-title').innerHTML = sk.title + '<span>'+sk.ts+'</span>';
@@ -815,6 +675,7 @@ function applyLang(l){
   document.getElementById('sk-f2').textContent = sk.c2;
   document.getElementById('sk-f3').textContent = sk.c3;
   document.getElementById('sk-f4').textContent = sk.c4;
+  
   const kt = c.contact;
   document.getElementById('ktl-lbl').textContent = kt.lbl;
   document.getElementById('ktl-title').innerHTML = kt.title + '<span>'+kt.ts+'</span>';
@@ -825,15 +686,6 @@ function applyLang(l){
   document.getElementById('ci-gl').textContent = kt.gl;
   document.getElementById('ci-locl').textContent = kt.locl;
   document.getElementById('ci-locv').textContent = kt.locv;
-  document.getElementById('cf-title').textContent = kt.cfTitle;
-  document.getElementById('cf-nl').textContent = kt.nl;
-  document.getElementById('cf-el2').textContent = kt.el2;
-  document.getElementById('cf-ml').textContent = kt.ml;
-  document.getElementById('cf-send').textContent = kt.send;
-  document.getElementById('cf-n').placeholder = kt.ph1;
-  document.getElementById('cf-e').placeholder = kt.ph2;
-  document.getElementById('cf-m').placeholder = kt.ph3;
-  document.getElementById('succ-t').textContent = kt.succ;
   document.getElementById('footer-txt').innerHTML = c.footer;
 }
 
@@ -846,26 +698,10 @@ function toggleDark(){
   dark = !dark;
   document.documentElement.setAttribute('data-theme', dark?'dark':'light');
   document.getElementById('dark-btn').textContent = dark ? T[lang].lightBtn : T[lang].darkBtn;
-  const dbm=document.getElementById('dark-btn-m');
-  if(dbm) dbm.textContent = dark ? T[lang].lightBtn : T[lang].darkBtn;
-}
-
-function sendMsg(){
-  const n=document.getElementById('cf-n').value;
-  const e=document.getElementById('cf-e').value;
-  const m=document.getElementById('cf-m').value;
-  if(!n||!e||!m){alert(lang==='ar'?'يرجى ملء جميع الحقول':'Please fill in all fields');return;}
-  document.getElementById('cf-inner').style.display='none';
-  document.getElementById('succ').style.display='block';
-  setTimeout(()=>{
-    document.getElementById('cf-inner').style.display='block';
-    document.getElementById('succ').style.display='none';
-    document.getElementById('cf-n').value='';
-    document.getElementById('cf-e').value='';
-    document.getElementById('cf-m').value='';
-  },3500);
 }
 
 applyLang('en');
 showPage('about');
 </script>
+</body>
+</html>
